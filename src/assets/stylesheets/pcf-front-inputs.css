@@ -1,0 +1,35 @@
+/***********************************************************************/
+/***************************  INPUT STYLES  ****************************/
+/***********************************************************************/
+
+.pcf button,
+.pcf input,
+.pcf textarea,
+.pcf button:disabled:focus,
+.pcf button:disabled:hover {
+	background-color:white;
+	border: 1px solid rgb(211, 211, 211);
+	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.08);
+	border-radius:3px;
+}
+
+.pcf button:focus,
+.pcf button:hover,
+.pcf input:focus,
+.pcf input:hover,
+.pcf textarea:focus,
+.pcf textarea:hover {
+	border-color: rgb(66, 133, 244);
+	box-shadow: 1px 1px 2px 0 rgba(0,0,0,.08);
+	color: inherit;
+}
+
+.pcf button:disabled {
+	opacity:0.5;
+	cursor:not-allowed;
+}
+
+.pcf label {
+	color:rgb(100,100,100);
+	font-size:0.8em;
+}

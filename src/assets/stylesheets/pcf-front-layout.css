@@ -1,0 +1,47 @@
+/***********************************************************************/
+/******************************  LAYOUT  *******************************/
+/***********************************************************************/
+
+.pcf fieldset {
+	padding:0;
+	margin:0;
+	border:0;
+}
+
+.pcf field {
+	display:block;
+	clear:both;
+	width:100%;
+	position:relative;
+	padding-bottom:20px;
+}
+
+.pcf label {
+	display:block;
+}
+
+.pcf button,
+.pcf input,
+.pcf textarea {
+	width:100%;
+	height:70px;
+	padding:20px;
+}
+
+.pcf textarea {
+	min-height:200px;
+	resize:none;
+}
+
+@media (min-width:701px){
+	.pcf .row {
+		display:flex;
+	}
+	.pcf field {
+		flex: 1 0 0%;
+		margin-right:10px;
+	}
+	.pcf field:last-child {
+		margin-right:0;
+	}
+} 

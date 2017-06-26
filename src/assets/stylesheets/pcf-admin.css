@@ -1,0 +1,49 @@
+.form-table .pcf-child {
+	padding-left:10px;
+	background: rgba(0,0,0,0.1);
+}
+
+.pcf_test {
+	float:right;
+}
+
+@media (max-width: 782px) {
+	.form-table td, .form-table th {
+		border-bottom: none !important;
+	}
+	.form-table td {;
+		padding-bottom: 10px !important;
+	}
+	.form-table td 
+	.input-toggle,
+	.regular-text {
+		margin-top: 4px;
+	}
+	.pcf_test {
+		float:none;
+		margin-top:10px !important;
+	}
+}
+
+pcf_icon {
+	position: relative;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	vertical-align: -3px;
+	margin-right: 4px;
+	transition:transform 0.2s ease-in;
+	transform:scale(0);
+}
+
+.wp-core-ui .button.disabled {
+	pointer-events: none !important;
+}
+
+.wp-core-ui .button.disabled.pcf_success {
+	background-color: rgb(48, 183, 46) !important;
+	text-shadow: none !important;
+	color: white !important;
+	opacity: 0.8 !important;
+	border-color: rgb(20, 129, 19) !important;
+}
