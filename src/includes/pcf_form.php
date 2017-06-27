@@ -148,7 +148,7 @@ class PCF_Form {
 				$this->html .= '
 
 				<div class="row">
-					<field id="recaptcha" class="g-recaptcha" data-badge="inline" data-sitekey="' . $this->reCaptcha['site_key'] . '" data-size="invisible" data-callback="submitForm_' . str_replace( '-', '', $this->formID ) . '"></field>
+					<field style="margin-left:4px" id="recaptcha" class="g-recaptcha" data-badge="inline" data-sitekey="' . $this->reCaptcha['site_key'] . '" data-size="invisible" data-callback="submitForm_' . str_replace( '-', '', $this->formID ) . '"></field>
 				</div>
 
 				<script>

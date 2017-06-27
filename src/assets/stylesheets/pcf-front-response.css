@@ -2,6 +2,10 @@
 /******************************  OVERLAY  ******************************/
 /***********************************************************************/
 
+.pcf {
+	position:relative;
+}
+
 .pcf .pcf_response_wrap,
 .pcf .pcf_overlay {
 	position:absolute;
