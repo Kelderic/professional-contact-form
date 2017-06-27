@@ -14,6 +14,7 @@ class PCF_Settings {
 			'prefix' => 'pcf',
 			'page' => [
 				'page_title' => 'Professional Contact Form',
+				'page_desc' => '<p>You shouldn\'t have to spend 20 minutes figuring out a contact form.</p>',
 				'menu_title' => 'Contact Form',
 				'capability' => 'administrator',
 				'menu_slug' => 'options_page',
@@ -21,12 +22,12 @@ class PCF_Settings {
 				'tabs' => [
 					[
 						'slug' => 'main',
-						'label' => 'Main',
+						'label' => 'Main Settings',
 						'sections' => [
 							[
 								'slug' => 'one',
-								'heading' => 'Settings',
-								'desc' => '<p>You shouldn\'t have to spend 20 minutes figuring out a contact form. With that in mind, the only thing you need to do to get up and running is fill in the email address below, and  place the shortcode (<code>[pcf-display-form]</code>) on a page of your choosing.</p><p>That said, I know that you also might <i>want</i> to tweak stuff, so  the above tabs provide some additional customization options.</p>',
+								'heading' => '',
+								'desc' => '<h2>Instructions</h2><p>1. Fill in your email address below (where does the contact form send emails to).</p><p>2. Place the shortcode (<code>[pcf-display-form]</code>) on a page of your choosing.</p><p><i>(Of course, I know that you also might <b>want</b> to tweak stuff, so  the above tabs provide some additional customization options.)</i></p>',
 								'fields' => [
 									[
 										'slug' => 'mail_to',
