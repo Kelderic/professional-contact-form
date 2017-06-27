@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		/************ CONFIGURATION ************/
 		/***************************************/
 
-		paths: grunt.file.readJSON("paths.json");
+		paths: grunt.file.readJSON("paths.json"),
 		config: {
 			build :'<%= paths.build %>',
 			dist : '<%= paths.dist %>'
