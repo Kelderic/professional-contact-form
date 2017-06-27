@@ -242,8 +242,8 @@ class PCF_Settings {
 											'disabled',
 											'enabled'
 										],
-										'default' => 'enabled',
-										'desc' => 'These styles control the look of the inputs. By default, these make the inputs match the look of Google\'s reCaptcha box, because that can\'t be changed.',
+										'default' => 'disabled',
+										'desc' => 'These styles attempt to make the form inputs match Google\'s reCaptcha style, which can\'t be changed. However, most themes already define a look for inputs, so these are disabled by default.',
 										'placeholder' => null,
 										'beforeInput' => '',
 										'afterInput' => ''
