@@ -20,6 +20,7 @@ if ( ! class_exists( 'AZM_Settings_Page' ) ) {
 
 			$this->page = [
 				'page_title' => $params['page']['page_title'],
+				'page_desc' => array_key_exists( 'page_desc', $params['page'] ) ? $params['page']['page_desc'] : '',
 				'menu_title' => $params['page']['menu_title'],
 				'capability' => $params['page']['capability'],
 				'menu_slug' => $this->prefix . '_' . $params['page']['menu_slug'],
@@ -32,11 +33,17 @@ if ( ! class_exists( 'AZM_Settings_Page' ) ) {
 
 			add_action( 'admin_menu', array( $this, 'azm_register_settings_page' ) );
 			add_action( 'admin_init',  array( $this, 'azm_initialize_settings' ) );
-			add_action( 'admin_head',  array( $this, 'azm_add_toggle_styles' ) ); 
+			add_action( 'admin_head',  array( $this, 'azm_add_toggle_styles' ) );
 
 		}
 
 		public function azm_add_toggle_styles() {
+
+			global $_wp_admin_css_colors;
+			global $admin_colors;
+
+			$color = get_user_meta(get_current_user_id(), 'admin_color', true);
+			$admin_colors = $_wp_admin_css_colors[$color]->colors[2];
 
 			$current_screen = get_current_screen();
 
@@ -72,6 +79,8 @@ if ( ! class_exists( 'AZM_Settings_Page' ) ) {
 			<div class="wrap">
 
 				<h2>' . $this->page['page_title'] . '</h2>
+
+				' . $this->page['page_desc'] . '
 
 				<form method="post" enctype="multipart/form-data" action="options.php">
 
