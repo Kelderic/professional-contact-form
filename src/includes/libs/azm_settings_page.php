@@ -70,9 +70,31 @@ if ( ! class_exists( 'AZM_Settings_Page' ) ) {
 
 		public function azm_create_settings_page() {
 
-			$default_tab_slug = $this->prefix . '_tab_' . $this->tabs[0]['slug'];
+			// SET TAB TO FIRST BY DEFAULT
 
-			$active_tab_slug = isset( $_GET[ 'tab' ] ) ? $_GET[ 'tab' ] : $default_tab_slug;
+			$active_tab_slug = $this->prefix . '_tab_' . $this->tabs[0]['slug'];
+
+			// IF THERE IS A USER PROVIDED ONE, MEANING THE USER HAS CLICKED ON A TAB:
+
+			if ( array_key_exists( 'tab', $_GET ) ) {
+
+				// GRAB IT AND SANITIZE IT
+
+				$user_provided_tab_slug = sanitize_key( $_GET['tab'] );
+
+				// LOOP THROUGH ALL POSSIBLE TABS TO SEE IF THE USER PROVIDED TEXT REALLY IS AN OPTION
+
+				foreach ( $this->tabs as $tab ) {
+
+					if ( $user_provided_tab_slug == $this->prefix . '_tab_' . $tab['slug'] ) {
+
+						$active_tab_slug = $user_provided_tab_slug;
+
+					}
+
+				}
+
+			}
 
 			echo '
 
