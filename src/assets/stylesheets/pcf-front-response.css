@@ -31,21 +31,21 @@
 	transform: translate(-105%,-105%) scale(1,2);
 }
 
-.pcf .pcf_overlay.reCaptcha {
+.pcf .pcf_overlay.pcf_reCaptcha {
 	background-color:rgb(74, 144, 226);
 	z-index:1;
 }
 
-.pcf .pcf_overlay.submitting {
+.pcf .pcf_overlay.pcf_submitting {
 	background-color: white;
 	z-index:2;
 }
 
-.pcf .pcf_overlay.success {
+.pcf .pcf_overlay.pcf_success {
 	background-color:rgb(60, 200, 60);
 	z-index:3;
 }
-.pcf .pcf_overlay.error {
+.pcf .pcf_overlay.pcf_error {
 	background-color:rgb(255, 137, 50);
 	z-index:3;
 }
@@ -76,23 +76,23 @@
 	width:100%;
 }
 
-.pcf.reCaptcha .pcf_overlay.reCaptcha,
-.pcf.submitting .pcf_overlay.reCaptcha,
-.pcf.submitting .pcf_overlay.submitting,
-.pcf.success .pcf_overlay.reCaptcha,
-.pcf.success .pcf_overlay.submitting,
-.pcf.success .pcf_overlay.success,
-.pcf.error .pcf_overlay.reCaptcha,
-.pcf.error .pcf_overlay.submitting,
-.pcf.error .pcf_overlay.error {
+.pcf.pcf_reCaptcha .pcf_overlay.pcf_reCaptcha,
+.pcf.pcf_submitting .pcf_overlay.pcf_reCaptcha,
+.pcf.pcf_submitting .pcf_overlay.pcf_submitting,
+.pcf.pcf_success .pcf_overlay.pcf_reCaptcha,
+.pcf.pcf_success .pcf_overlay.pcf_submitting,
+.pcf.pcf_success .pcf_overlay.pcf_success,
+.pcf.pcf_error .pcf_overlay.pcf_reCaptcha,
+.pcf.pcf_error .pcf_overlay.pcf_submitting,
+.pcf.pcf_error .pcf_overlay.pcf_error {
 	transform: scale(3,6);
 	pointer-events:auto;
 }
 
-.pcf.reCaptcha .pcf_response.reCaptcha,
-.pcf.submitting .pcf_response.submitting,
-.pcf.success .pcf_response.success,
-.pcf.error .pcf_response.error {
+.pcf.pcf_reCaptcha .pcf_response.pcf_reCaptcha,
+.pcf.pcf_submitting .pcf_response.pcf_submitting,
+.pcf.pcf_success .pcf_response.pcf_success,
+.pcf.pcf_error .pcf_response.pcf_error {
 	opacity:1;
 	transition-delay:.5s;
 }

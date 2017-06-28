@@ -106,23 +106,23 @@ class PCF_Form {
 
 			<form class="pcf pcf_default" action="" ajax-action="' . admin_url( 'admin-ajax.php' ) . '" method="post" id="' . $this->formID . '">
 				<div class="pcf_response_wrap">
-					<div class="pcf_overlay reCaptcha"></div>
-					<div class="pcf_overlay submitting"></div>
-					<div class="pcf_overlay success"></div>
-					<div class="pcf_overlay error"></div>
-					<div class="pcf_response reCaptcha" style="color:white;">
+					<div class="pcf_overlay pcf_reCaptcha"></div>
+					<div class="pcf_overlay pcf_submitting"></div>
+					<div class="pcf_overlay pcf_success"></div>
+					<div class="pcf_overlay pcf_error"></div>
+					<div class="pcf_response pcf_reCaptcha" style="color:white;">
 						<pcf_icon class="pcf_reCaptcha" style="background: white;border-radius:50%;">' . file_get_contents( plugin_dir_path( PCF_FILE ) . 'assets/icons/reCaptcha.svg' ) . '</pcf_icon>
 						Verifying that you are human...
 					</div>
-					<div class="pcf_response submitting">
+					<div class="pcf_response pcf_submitting">
 						<pcf_icon class="pcf_loading">' . file_get_contents( plugin_dir_path( PCF_FILE ) . 'assets/icons/loading.svg' ) . '</pcf_icon>
 						Sending message...
 					</div>
-					<div class="pcf_response success" style="color:white;">
+					<div class="pcf_response pcf_success" style="color:white;">
 						<pcf_icon class="pcf_success">' . file_get_contents( plugin_dir_path( PCF_FILE ) . 'assets/icons/success.svg' ) . '</pcf_icon>
 						Message sent!
 					</div>
-					<div class="pcf_response error" style="color:white;">
+					<div class="pcf_response pcf_error" style="color:white;">
 						<pcf_icon class="pcf_error">' . file_get_contents( plugin_dir_path( PCF_FILE ) . 'assets/icons/error.svg' ) . '</pcf_icon>
 						Error
 					</div>

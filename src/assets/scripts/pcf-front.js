@@ -61,7 +61,7 @@
 
 				if ( window.grecaptcha ) {
 
-					self.el.form.classList.add('reCaptcha');
+					self.el.form.classList.add('pcf_reCaptcha');
 
 					window.setTimeout(function() {
 
@@ -91,8 +91,8 @@
 
 			// VISUALLY CHANGE FORM TO SUBMITTING
 
-			self.el.form.classList.remove('reCaptcha');
-			self.el.form.classList.add('submitting');
+			self.el.form.classList.remove('pcf_reCaptcha');
+			self.el.form.classList.add('pcf_submitting');
 
 			// SUBMIT THE FORM VIA AJAX
 
@@ -163,8 +163,8 @@
 
 			// VISUALLY RESET THE FORM BACK TO BEGINNING
 
-			self.el.form.classList.remove('error');
-			self.el.form.classList.remove('success');
+			self.el.form.classList.remove('pcf_error');
+			self.el.form.classList.remove('pcf_success');
 
 		};
 
@@ -183,16 +183,16 @@
 
 			if ( success == true ) {
 
-				self.el.form.classList.add('success');
-				self.el.form.classList.remove('submitting');
-				self.el.form.classList.remove('reCaptcha');
+				self.el.form.classList.add('pcf_success');
+				self.el.form.classList.remove('pcf_submitting');
+				self.el.form.classList.remove('pcf_reCaptcha');
 				self.el.button.innerText = 'Send Another Message';
 
 			} else {
 
-				self.el.form.classList.add('error');
-				self.el.form.classList.remove('submitting');
-				self.el.form.classList.remove('reCaptcha');
+				self.el.form.classList.add('pcf_error');
+				self.el.form.classList.remove('pcf_submitting');
+				self.el.form.classList.remove('pcf_reCaptcha');
 
 			}
 
