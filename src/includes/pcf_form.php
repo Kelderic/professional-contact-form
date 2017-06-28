@@ -19,11 +19,11 @@ class PCF_Form {
 
 		// RETRIEVE OPTIONS FROM DB
 
-		self::pcf_retrieve_options();
+		self::retrieve_options();
 
 		// BUILD FORM HTML
 
-		self::pcf_build_form();
+		self::build_form();
 
 		// SET UP ACTION TO CHANGE THE STATUS AFTER THE STATUS IS AVAILABLE,
 		// FOR NO-JS SITUATIONS
@@ -50,7 +50,7 @@ class PCF_Form {
 	/***********************  PRIVATE SETUP METHODS  ***********************/
 	/***********************************************************************/
 
-	private function pcf_retrieve_options() {
+	private function retrieve_options() {
 
 		$options_form = get_option('pcf_options_form') ? get_option('pcf_options_form') : [];
 
@@ -100,7 +100,7 @@ class PCF_Form {
 
 	}
 
-	private function pcf_build_form() {
+	private function build_form() {
 
 		$this->html .= '
 
@@ -135,7 +135,7 @@ class PCF_Form {
 
 				foreach ( $row as $field ) {
 
-					$this->html .= self::pcf_build_field( $field );
+					$this->html .= self::build_field( $field );
 
 				}
 
@@ -181,7 +181,7 @@ class PCF_Form {
 
 	}
 
-	private function pcf_build_field( $field ) {
+	private function build_field( $field ) {
 
 		if ( $field['status'] != 'enabled' ) {
 

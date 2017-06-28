@@ -20,7 +20,7 @@ class PCF_Mailer {
 
 		$this->reCaptcha = new PCF_ReCaptcha();
 
-		add_action( 'init', array( $this, 'pcf_watch_for_contact_form_submit' ) );
+		add_action( 'init', array( $this, 'watch_for_contact_form_submit' ) );
 
 	}
 
@@ -28,7 +28,7 @@ class PCF_Mailer {
 	/**************************  PUBLIC INTERFACE  *************************/
 	/***********************************************************************/
 
-	public function pcf_watch_for_contact_form_submit() {
+	public function watch_for_contact_form_submit() {
 
 		// WE MOSTLY USE GET REQUESTS, BUT FOR JS-DISABLED FRONT-END REAL EMAILS, WE
 		// DON'T WANT THE USER TO SEE ALL THE QUERY STRINGS, SO WE USE POST.
@@ -56,7 +56,7 @@ class PCF_Mailer {
 
 			// SEND EMAIL
 
-			$status = $this->pcf_send_email( $testing );
+			$status = $this->send_email( $testing );
 
 			// WE ARE SENDING EITHER A TEST EMAIL OR A REAL EMAIL, VIA AJAX
 
@@ -120,7 +120,7 @@ class PCF_Mailer {
 
 	}
 
-	private function pcf_send_email( $testing ) {
+	private function send_email( $testing ) {
 
 		$options_main = get_option('pcf_options_main') ? get_option('pcf_options_main') : [];
 		$options_email = get_option('pcf_options_email') ? get_option('pcf_options_email') : [];
