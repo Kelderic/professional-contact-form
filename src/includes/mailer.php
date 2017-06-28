@@ -142,7 +142,6 @@ class PCF_Mailer {
 			$phone = '(555) 555-5555';
 			$message = 'This is a test message. This is where the message that the user enters in the contact form will appear.';
 			$from = 'Person <wordpress@functionaldevices.com>';
-			$replyto = 'person@website.com';
 
 		} else {
 
@@ -150,7 +149,6 @@ class PCF_Mailer {
 			$email = array_key_exists( 'pcf_email', $_POST ) ? $_POST['pcf_email'] : null;
 			$phone = array_key_exists( 'pcf_phone', $_POST ) ? $_POST['pcf_phone'] : null;
 			$message = $_POST['pcf_message'];
-			$replyto = $_POST['pcf_email'];
 
 			// VALIDATE NOT A BOT
 
@@ -177,9 +175,13 @@ class PCF_Mailer {
 		
 		$body = self::build_email_body( $subject, $name, $email, $phone, $message );
 
-		$headers  = 'Content-Type: text/html' . "\n";
-		$headers .= 'X-WPCF7-Content-Type: text/html' . "\n";
-		$headers .= 'Reply-To: ' . $replyto . "\n";
+		if ( $email ) {
+
+			$headers  = 'Content-Type: text/html' . "\n";
+			$headers .= 'X-WPCF7-Content-Type: text/html' . "\n";
+			$headers .= 'Reply-To: ' . $email . "\n";
+
+		}
 
 		// SEND EMAIL
 
