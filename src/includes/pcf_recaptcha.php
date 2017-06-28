@@ -1,6 +1,6 @@
 <?php
 
-class ReCaptcha {
+class PCF_ReCaptcha {
 
 	public $secret_key;
 	

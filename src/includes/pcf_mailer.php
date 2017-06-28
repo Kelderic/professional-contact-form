@@ -18,7 +18,7 @@ class PCF_Mailer {
 			'msg' => 'Haven\'t send yet.'
 		];
 
-		$this->reCaptcha = new ReCaptcha();
+		$this->reCaptcha = new PCF_ReCaptcha();
 
 		add_action( 'init', array( $this, 'pcf_watch_for_contact_form_submit' ) );
 
