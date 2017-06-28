@@ -4,7 +4,7 @@
 	/******************* REUSABLE CUSTOM CLASSES *****************/
 	/*************************************************************/
 
-	window.FieldGroup = (function( params ) {
+	window.PCF_FieldGroup = (function( params ) {
 
 		/***************************************/
 		/************* INITIALIZE **************/
@@ -191,7 +191,7 @@
 
 	}
 
-	function showAdminNotice( status, message ) {
+	function pcf_showAdminNotice( status, message ) {
 
 		var wrapper = document.querySelector('.wrap');
 		var newNode = document.createElement('div');
@@ -213,7 +213,7 @@
 	/************************* INITIALIZE ************************/
 	/*************************************************************/
 
-	new FieldGroup({
+	new PCF_FieldGroup({
 		parentID: 'pcf_reCaptcha_status',
 		childrenIDs: [
 			'pcf_reCaptcha_site_key',
@@ -229,7 +229,7 @@
 		}
 	});
 
-	new FieldGroup({
+	new PCF_FieldGroup({
 		parentID: 'pcf_field_name_status_customize',
 		childrenIDs: [
 			'pcf_field_name_required',
@@ -237,7 +237,7 @@
 		]
 	});
 
-	new FieldGroup({
+	new PCF_FieldGroup({
 		parentID: 'pcf_field_email_status_customize',
 		childrenIDs: [
 			'pcf_field_email_required',
@@ -245,7 +245,7 @@
 		]
 	});
 
-	new FieldGroup({
+	new PCF_FieldGroup({
 		parentID: 'pcf_field_phone_status_customize',
 		childrenIDs: [
 			'pcf_field_phone_required',
@@ -253,33 +253,40 @@
 		]
 	});
 
-	var testButton = document.getElementById('send_test_email');
-	if ( testButton ) {
-		var original = testButton.textContent;
-		testButton.addEventListener('click', function(event){
+	var pcf_testButton = document.getElementById('send_test_email');
+
+	if ( pcf_testButton ) {
+
+		var original = pcf_testButton.textContent;
+
+		pcf_testButton.addEventListener('click', function(event){
+
 			event.preventDefault();
-			testButton.classList.add('disabled');
-			testButton.textContent = 'Sending...';
+
+			pcf_testButton.classList.add('disabled');
+			pcf_testButton.textContent = 'Sending...';
+
 			pcf_ajax({
 				method: 'get',
 				queryURL: event.target.href.replace('options-general', 'admin-ajax') + '_ajax',
 				success: function(serverResponse) {
-					testButton.classList.remove('disabled');
-					testButton.textContent = original;
+					pcf_testButton.classList.remove('disabled');
+					pcf_testButton.textContent = original;
 					if ( JSON.parse(serverResponse).success) {
-						showAdminNotice('success', 'Your test email has been successfully sent. Please check and make sure that you recieved it.');
+						pcf_showAdminNotice('success', 'Your test email has been successfully sent. Please check and make sure that you recieved it.');
 					} else {
-						showAdminNotice('error', 'Oops, something went wrong and the email wasn\'t sent. Please check your server\'s email configuration. If you are running on localhost, please make sure that you have an email client installed.');
+						pcf_showAdminNotice('error', 'Oops, something went wrong and the email wasn\'t sent. Please check your server\'s email configuration. If you are running on localhost, please make sure that you have an email client installed.');
 					}
 				},
 				error: function(serverResponse) {
-					testButton.classList.remove('disabled');
-					testButton.textContent = original;
-					showAdminNotice('error', 'Oops, something went wrong and we can\'t connect to the server. Please wait a moment and try reloading.');
+					pcf_testButton.classList.remove('disabled');
+					pcf_testButton.textContent = original;
+					pcf_showAdminNotice('error', 'Oops, something went wrong and we can\'t connect to the server. Please wait a moment and try reloading.');
 				}
 			});
 
 		});
+
 	}
 
 }(window));
