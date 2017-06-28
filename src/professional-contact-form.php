@@ -24,11 +24,11 @@ define( 'PCF_VERSION', '1.0.0' );
 
 require_once dirname( PCF_FILE ) . '/includes/libs/azm_settings_page.php';
 
-require_once dirname( PCF_FILE ) . '/includes/pcf_enqueuer.php';
-require_once dirname( PCF_FILE ) . '/includes/pcf_settings.php';
-require_once dirname( PCF_FILE ) . '/includes/pcf_mailer.php';
-require_once dirname( PCF_FILE ) . '/includes/pcf_recaptcha.php';
-require_once dirname( PCF_FILE ) . '/includes/pcf_form.php';
+require_once dirname( PCF_FILE ) . '/includes/enqueuer.php';
+require_once dirname( PCF_FILE ) . '/includes/settings.php';
+require_once dirname( PCF_FILE ) . '/includes/mailer.php';
+require_once dirname( PCF_FILE ) . '/includes/recaptcha.php';
+require_once dirname( PCF_FILE ) . '/includes/form.php';
 
 /***********************************************************************/
 /*****************************  INITIATE  ******************************/
