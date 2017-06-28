@@ -145,10 +145,10 @@ class PCF_Mailer {
 
 		} else {
 
-			$name = array_key_exists( 'pcf_name', $_POST ) ? $_POST['pcf_name'] : null;
-			$email = array_key_exists( 'pcf_email', $_POST ) ? $_POST['pcf_email'] : null;
-			$phone = array_key_exists( 'pcf_phone', $_POST ) ? $_POST['pcf_phone'] : null;
-			$message = $_POST['pcf_message'];
+			$name = array_key_exists( 'pcf_name', $_POST ) ? sanitize_text_field( $_POST['pcf_name'] ) : null;
+			$email = array_key_exists( 'pcf_email', $_POST ) ? sanitize_email( $_POST['pcf_email'] ) : null;
+			$phone = array_key_exists( 'pcf_phone', $_POST ) ? sanitize_text_field( $_POST['pcf_phone'] ) : null;
+			$message = sanitize_textarea_field( $_POST['pcf_message'] );
 
 			// VALIDATE NOT A BOT
 
