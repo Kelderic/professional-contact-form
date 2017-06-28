@@ -35,11 +35,11 @@ class PCF_Mailer {
 
 		if ( array_key_exists( 'action', $_POST ) ) {
 
-			$action = $_POST['action'];
+			$action = sanitize_key( $_POST['action'] );
 
 		} elseif ( array_key_exists( 'action', $_GET ) ) {
 
-			$action = $_GET['action'];
+			$action = sanitize_key( $_GET['action'] );
 
 		}
 
