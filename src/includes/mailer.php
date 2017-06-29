@@ -56,7 +56,7 @@ class PCF_Mailer {
 
 			// SEND EMAIL
 
-			$status = $this->send_email( $testing );
+			$status = $this->send_email( $testing, $ajax );
 
 			// WE ARE SENDING EITHER A TEST EMAIL OR A REAL EMAIL, VIA AJAX
 
@@ -120,7 +120,7 @@ class PCF_Mailer {
 
 	}
 
-	private function send_email( $testing ) {
+	private function send_email( $testing, $ajax ) {
 
 		$options_main = get_option('pcf_options_main') ? get_option('pcf_options_main') : [];
 		$options_email = get_option('pcf_options_email') ? get_option('pcf_options_email') : [];
@@ -152,7 +152,9 @@ class PCF_Mailer {
 
 			// VALIDATE NOT A BOT
 
-			if ( $options_form['pcf_reCaptcha_status'] == 'enabled' ) {
+			if ( $options_form['pcf_reCaptcha_status'] == 'enabled' && $ajax ) {
+
+				// NO NEED TO SANITIZE THIS BECAUSE IT IS BEING SENT STRAIGHT TO GOOGLE
 
 				if ( $this->reCaptcha->testCode( $_POST['g-recaptcha-response'] ) != true ) {
 
