@@ -100,7 +100,7 @@ if ( ! class_exists( 'AZM_Settings_Page' ) ) {
 
 			<div class="wrap">
 
-				<h2>' . $this->page['page_title'] . '</h2>
+				<h2>' . esc_html( $this->page['page_title'] ) . '</h2>
 
 				' . $this->page['page_desc'] . '
 
