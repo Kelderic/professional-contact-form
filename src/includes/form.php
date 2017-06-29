@@ -148,7 +148,7 @@ class PCF_Form {
 				$this->html .= '
 
 				<div class="row">
-					<field style="margin-left:4px" id="recaptcha" class="g-recaptcha" data-badge="inline" data-sitekey="' . $this->reCaptcha['site_key'] . '" data-size="invisible" data-callback="submitForm_' . str_replace( '-', '', $this->formID ) . '"></field>
+					<field style="margin-left:4px" id="recaptcha" class="g-recaptcha" data-badge="inline" data-sitekey="' . esc_attr( $this->reCaptcha['site_key'] ) . '" data-size="invisible" data-callback="submitForm_' . str_replace( '-', '', $this->formID ) . '"></field>
 				</div>
 
 				<script>
@@ -189,14 +189,14 @@ class PCF_Form {
 
 		}
 
-		$html = '<field><label for="' . $field['name'] . '">' . $field['label'] . ( $field['required'] == 'yes' ? ' *' : '' ) . '</label>';
+		$html = '<field><label for="' . esc_attr( $field['name'] ) . '">' . esc_html( $field['label'] ) . ( $field['required'] == 'yes' ? ' *' : '' ) . '</label>';
 
 		switch ( $field['type'] ) {
 			case 'textarea':
-				$html .= '<textarea name="' . $field['name'] . '" id="' . $field['name'] . '" placeholder="' . $field['placeholder'] . '"' . ( $field['required'] == 'yes' ? ' required' : '' ) . '></textarea>';
+				$html .= '<textarea name="' . esc_attr( $field['name'] ) . '" id="' . esc_attr( $field['name'] ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '"' . ( $field['required'] == 'yes' ? ' required' : '' ) . '></textarea>';
 				break;
 			default:
-				$html .= '<input name="' . $field['name'] . '" id="' . $field['name'] . '" placeholder="' . $field['placeholder'] . '" type="' . $field['type'] . '" value=""' . ( $field['required'] == 'yes' ? ' required' : '' ) . ' />';
+				$html .= '<input name="' . esc_attr( $field['name'] ) . '" id="' . esc_attr( $field['name'] ) . '" placeholder="' . esc_attr( $field['placeholder'] ) . '" type="' . esc_attr( $field['type'] ) . '" value=""' . ( $field['required'] == 'yes' ? ' required' : '' ) . ' />';
 				break;
 		}
 
@@ -210,11 +210,11 @@ class PCF_Form {
 
 		if ( $pcf_mailer->status['success'] === true ) {
 
-			$class = 'pcf success';
+			$class = 'pcf pcf_success';
 
 		} elseif ( $pcf_mailer->status['success'] === false ) {
 
-			$class = 'pcf error';
+			$class = 'pcf pcf_error';
 
 		} else {
 
