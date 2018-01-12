@@ -177,12 +177,13 @@ class PCF_Mailer {
 		
 		$body = self::build_email_body( $subject, $name, $email, $phone, $message );
 
-		if ( $email ) {
+		$headers = [
+			'Content-Type: text/html; charset=UTF-8',
+			'X-WFRRF7-Content-Type: text/html'
+		];
 
-			$headers  = 'Content-Type: text/html' . "\n";
-			$headers .= 'X-WPCF7-Content-Type: text/html' . "\n";
-			$headers .= 'Reply-To: ' . $email . "\n";
-
+		if ( $email != null ) {
+			array_push( $headers, 'Reply-To: ' . $email );
 		}
 
 		// SEND EMAIL
