@@ -122,6 +122,8 @@ class PCF_Mailer {
 
 	private function send_email( $testing, $ajax ) {
 
+		$date = new DateTime();
+
 		$options_main = get_option('pcf_options_main') ? get_option('pcf_options_main') : [];
 		$options_email = get_option('pcf_options_email') ? get_option('pcf_options_email') : [];
 		$options_form = get_option('pcf_options_form') ? get_option('pcf_options_form') : [];
@@ -173,7 +175,7 @@ class PCF_Mailer {
 
 		$to = $options_main['pcf_mail_to'];
 
-		$subject = $options_email['pcf_mail_subject'] ? $options_email['pcf_mail_subject'] : ( get_bloginfo( 'name' ) . ' Contact Form Message' );
+		$subject = $options_email['pcf_mail_subject'] ? $options_email['pcf_mail_subject'] . ' - ' . $date->getTimestamp() : ( get_bloginfo( 'name' ) . ' Contact Form Message' ) . ' - ' . $date->getTimestamp();
 		
 		$body = self::build_email_body( $subject, $name, $email, $phone, $message );
 
