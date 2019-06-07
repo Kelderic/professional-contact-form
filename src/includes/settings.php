@@ -262,6 +262,15 @@ class PCF_Settings {
 										'desc' => 'Place words here, comma-delimited. If a message contains any of these words, it will not be sent.',
 										'placeholder' => 'badword1,badword2,etc'
 									],
+									[
+										'slug' => 'mail_to_if_blacklisted',
+										'label' => 'Email Address to Inform of Blacklisted (Optional)',
+										'type' => 'email',
+										'choices' => null,
+										'default' => '',
+										'desc' => 'Provide an email address to send messages when a message is blacklisted.',
+										'placeholder' => 'name@email.com',
+									]
 								]
 							]
 						]

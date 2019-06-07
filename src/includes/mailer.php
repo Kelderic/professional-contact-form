@@ -137,7 +137,7 @@ class PCF_Mailer {
 
 		// LOAD THE ARRAY OF NON-ALLOWED WORDS
 
-		$nonAllowedWordsArray = explode( ' ', strtolower($options_form['pcf_nonallowed_words']) );
+		$nonAllowedWordsArray = explode( ',', strtolower($options_form['pcf_nonallowed_words']) );
 
 		// GET USER DATA FROM POST OBJECT
 
@@ -194,14 +194,17 @@ class PCF_Mailer {
 
 		// MAKE SURE MESSAGE DOES NOT CONTAIN BLACKLIST WORDS
 
-		$vbAllowedToSend = true;
+		$vbBlacklistError = false;
 		$input = strtolower($subject) . strtolower($body);
+		$problemWord = '';
 
 		foreach ( $nonAllowedWordsArray as $word ) {
 
-			if ( strpos($input, $word ) !== false ) {
+			if ( ( strpos($input, $word . ' ' ) !== false ) || ( strpos($input, $word . '.' ) !== false ) || ( strpos($input, $word . ',' ) !== false ) ) {
 
-				$vbAllowedToSend = false;
+				$problemWord = $word;
+
+				$vbBlacklistError = true;
 
 			}
 
@@ -209,13 +212,16 @@ class PCF_Mailer {
 
 		// SEND EMAIL IF ALLOWED TO
 
-		if ( $vbAllowedToSend ) {
+		if ( $vbBlacklistError ) {
+
+			$to = $options_form['pcf_mail_to_if_blacklisted'];
+			$body = 'Someone tried to send you an email. It was blocked because of the word: "' . $problemWord . '".';
+
+		}
+
+		if ( ( $to != '' ) && ( $to != null ) ) {
 
 			$success = wp_mail( $to, $subject, $body, $headers );
-
-		} else {
-
-			$success = true;
 
 		}
 
