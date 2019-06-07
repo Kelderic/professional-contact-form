@@ -135,6 +135,10 @@ class PCF_Mailer {
 			];
 		}
 
+		// LOAD THE ARRAY OF NON-ALLOWED WORDS
+
+		$nonAllowedWordsArray = explode( ' ', strtolower($options_form['pcf_nonallowed_words']) );
+
 		// GET USER DATA FROM POST OBJECT
 
 		if ( $testing ) {
@@ -188,9 +192,32 @@ class PCF_Mailer {
 			array_push( $headers, 'Reply-To: ' . $email );
 		}
 
-		// SEND EMAIL
+		// MAKE SURE MESSAGE DOES NOT CONTAIN BLACKLIST WORDS
 
-		$success = wp_mail( $to, $subject, $body, $headers );
+		$vbAllowedToSend = true;
+		$input = strtolower($subject) . strtolower($body);
+
+		foreach ( $nonAllowedWordsArray as $word ) {
+
+			if ( strpos($input, $word ) !== false ) {
+
+				$vbAllowedToSend = false;
+
+			}
+
+		}
+
+		// SEND EMAIL IF ALLOWED TO
+
+		if ( $vbAllowedToSend ) {
+
+			$success = wp_mail( $to, $subject, $body, $headers );
+
+		} else {
+
+			$success = true;
+
+		}
 
 		return [
 			'success' => $success,

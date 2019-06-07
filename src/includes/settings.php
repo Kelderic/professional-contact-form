@@ -250,6 +250,20 @@ class PCF_Settings {
 									]
 								]
 							],
+							[
+								'slug' => 'four',
+								'heading' => 'Content Filters',
+								'desc' => '<p>Some spammers are going to get through reCaptcha. You can specify a list of unallowed keywords here, so that if a message contains one or more, it will be invisibly dropped. No email will be sent, but the user won\'t be told. The spammers think they are getting through, and you don\'t have to see it.</p>',
+								'fields' => [
+									[
+										'slug' => 'nonallowed_words',
+										'label' => 'Non-Allowed Words',
+										'type' => 'textarea',
+										'desc' => 'Place words here, space-delimited. If a message contains any of these words, it will not be sent.',
+										'placeholder' => 'badword1 badword2 etc'
+									],
+								]
+							]
 						]
 					],
 					[
